@@ -106,7 +106,7 @@ handlePrevNews = async () => {
 
 handleNextNews = async () => {
 
-    if( Math.ceil(this.state.totalResults/20) > this.state.page+1){
+    if(Math.ceil(this.state.totalResults/20) < this.state.page+1){
 
     }else{
 
@@ -142,8 +142,8 @@ handleNextNews = async () => {
                 </div>
 
                 <div className="container my-2 d-flex justify-content-between">
-                <button className="btn btn-dark" onClick={this.handlePrevNews} >Previous</button>
-                <button className="btn btn-dark" onClick={this.handleNextNews} >Next</button>
+                <button disabled={this.state.page<=1} className="btn btn-dark" onClick={this.handlePrevNews} >Previous</button>
+                <button disabled={Math.ceil(this.state.totalResults/20) < this.state.page+1} className="btn btn-dark" onClick={this.handleNextNews} >Next</button>
 
                 </div>
             </div>
